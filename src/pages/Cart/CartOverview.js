@@ -52,7 +52,8 @@ const useStyles = createUseStyles({
         position: 'relative',
         zIndex: 1,
         cursor: 'pointer',
-        
+        color: Colors.white,
+
         '&:before':{
             position: 'absolute',
             display: 'block',
@@ -95,7 +96,7 @@ function CartOverview({cart, productData}) {
     <div className={classes.bottomCont}>
         <div className={classes.row}><span>Total</span> <span>{`$${(parseFloat(totalPrice) + deliveryCost).toFixed(2)}`}</span></div>
     </div>
-    <button className={classes.button}><Link to='/checkout'>Proceed to checkout</Link></button>
+    <Link to='/checkout'><button className={classes.button}>Proceed to checkout</button></Link>
     </div>
   )
 }

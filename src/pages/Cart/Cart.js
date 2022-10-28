@@ -71,7 +71,8 @@ const useStyles = createUseStyles({
     position: 'relative',
     zIndex: 1,
     cursor: 'pointer',
-    
+    color: Colors.lightBlue,
+
     '&:before':{
         position: 'absolute',
         display: 'block',
@@ -119,7 +120,7 @@ function Cart({productData}) {
                 layout='cart'
                 />)
           })}
-          <button className={classes.button}><Link to='/productlist'>{`< Continue shopping`}</Link></button>
+          <Link to='/productlist'><button className={classes.button}>{`< Continue shopping`}</button></Link>
         </div>
       <CartOverview cart={cart} productData={productData}/>
     </div>
@@ -132,7 +133,7 @@ function Cart({productData}) {
         <h3>Your shopping cart is empty</h3>
         <p>Looking for ideas?</p>
       </div>
-      <button className={classes.button}><Link to='/productlist'>{`< Continue shopping`}</Link></button>
+      <Link to='/productlist'><button className={classes.button}>{`< Continue shopping`}</button></Link>
     </div>}
     </React.Fragment>
   )
