@@ -3,9 +3,10 @@ import { Link } from "react-router-dom"
 import { createUseStyles } from 'react-jss'
 import { flexRow, flexColumn } from 'assets/flexer'
 
-import RatingStars from './RatingStars'
+import Rating from './components/Rating'
 import ChangeQuantity from 'components/Cart/ChangeQuantity'
 import RemoveFromCart from 'components/Cart/RemoveFromCart'
+
 
 const contHeight = 230
 const useStyles = createUseStyles({
@@ -41,24 +42,6 @@ const useStyles = createUseStyles({
         fontWeight:  '600',
         marginBottom: 10
     },
-
-    ratingCont: {
-        ...flexRow('nowrap', 'flex-start', 'center'),
-        marginBottom: 10,
-
-        '& div':{
-            ...flexRow('nowrap', 'flex-start', 'center'),
-
-            '& img': {
-                width: 12,
-                height: 12
-            },
-        },
-        '& p': {
-            marginLeft: 5,
-            fontSize: '0.8rem',
-        },
-    },
     cartOptions: {
         ...flexRow('nowrap', 'space-between', 'center'),
         width: 100,
@@ -70,7 +53,7 @@ const useStyles = createUseStyles({
         minWidth: 150,
         height: contHeight,
     },
-    productPriceSmall: {
+    productPrice: {
         fontWeight: 600,
     },
 })
@@ -88,10 +71,7 @@ function CartProduct({product}) {
         </div>
         <div className={classes.middleCont}>
             <Link to={`/productdetail/${id}`} className={classes.productLink}>{title}</Link>
-            <div className={classes.ratingCont}>
-                <div><RatingStars rate={rate}/></div>
-                <p>({count})</p>
-            </div>
+            <Rating rate={rate} count={count} />
             <div className={classes.cartOptions}>
                 <ChangeQuantity id={id}/>
                 <RemoveFromCart id={id}/>
@@ -99,7 +79,7 @@ function CartProduct({product}) {
             <p className={classes.deliveryMsg}><span>IN STOCK</span> Ordered before 11:59, delivered tomorrow</p>
         </div>
         <div className={classes.rightCont}>
-            <p className={classes.productPriceSmall}>${price}</p>
+            <p className={classes.productPrice}>${price}</p>
         </div>
     </div>
   )
