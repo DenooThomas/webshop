@@ -1,6 +1,7 @@
-import { useState, useEffect} from "react"
+import { useContext } from "react"
 import {Routes, Route} from 'react-router-dom'
 import { createUseStyles } from "react-jss"
+import { ProductContext } from "context/ProductContext"
 
 import Header from 'layout/Header'
 import Footer from "layout/Footer"
@@ -23,12 +24,7 @@ const useStyles = createUseStyles({
 })
 
 function App() {
-  const [productData, setProductData] = useState([])
-  useEffect(() => {
-    fetch('https://fakestoreapi.com/products')
-          .then(res=>res.json())
-          .then(data=>setProductData(data))
-  }, [])
+  const {productData} = useContext(ProductContext)  
 
   const classes = useStyles()
 

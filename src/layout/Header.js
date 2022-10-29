@@ -13,7 +13,7 @@ const useStyles = createUseStyles({
     width: '100%',
     backgroundColor: Colors.blue,
     padding: '12px 60px',
-    marginBottom: 35,
+    marginBottom: 50,
   },
   headerCont: {
     ...flexRow('nowrap', 'space-between', 'center'),
