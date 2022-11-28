@@ -5,7 +5,7 @@
 Webshop inspired by https://www.bol.com/be/nl/.
 
 ## Demo
-### Live demo: webshop-mu-two.vercel.app
+### Live demo: [webshop-mu-two.vercel.app](https://webshop-mu-two.vercel.app/)
 
 ## Installation
 
