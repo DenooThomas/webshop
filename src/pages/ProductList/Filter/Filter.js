@@ -6,7 +6,7 @@ import CategorySelector from './CategorySelector'
 
 const useStyles = createUseStyles({
     filterCont: {
-        
+        width: 200,
     }
 })
 
