@@ -18,7 +18,7 @@ const useStyles = createUseStyles({
         },
     }
 })
-function CategorySelector() {
+function CategorySelector({selectCategory}) {
     const {categories} = useContext(ProductContext)
 
     const classes = useStyles()
@@ -26,8 +26,8 @@ function CategorySelector() {
     <div className={classes.categorySelectorCont}>
         {categories && categories.map(category => {
             return (
-            <div className={classes.categoryCont}>
-            <input type='checkbox' id={category} value={category} />
+            <div key={category} className={classes.categoryCont}>
+            <input onClick={(e) => selectCategory(e.target.value)} type='checkbox' id={category} value={category} />
             <label htmlFor={category}>{category}</label>
             </div>)
         })}

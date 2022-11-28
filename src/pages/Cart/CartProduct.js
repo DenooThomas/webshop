@@ -3,7 +3,8 @@ import { Link } from "react-router-dom"
 import { createUseStyles } from 'react-jss'
 import { flexRow, flexColumn } from 'assets/flexer'
 
-import Rating from './components/Rating'
+import { Colors } from 'assets/colors'
+import Rating from '../../components/Product/components/Rating'
 import ChangeQuantity from 'components/Cart/ChangeQuantity'
 import RemoveFromCart from 'components/Cart/RemoveFromCart'
 
@@ -27,7 +28,7 @@ const useStyles = createUseStyles({
     },
     productImg: {
         maxWidth: 115,
-        maxHeight: 175,
+        maxHeight: 165,
         objectFit: 'contain',
 
     },
@@ -48,8 +49,22 @@ const useStyles = createUseStyles({
         height: 60,
         marginBottom: 10,
     },
+    deliveryMsg: {
+        ...flexRow('wrap',' flex-start', 'flex-start'),
+        fontSize: '0.8rem',
+        color: Colors.green,
+        width: 200,
+
+        '& span':{
+            display: 'block',
+            fontSize: '0.6rem',
+            padding: 3,
+            marginBottom: 5,
+            border: `1px solid ${Colors.green}`
+        }
+    },
     rightCont: {
-        ...flexColumn('nowrap', 'space-between', 'flex-start'),
+        ...flexColumn('nowrap', 'space-between', 'flex-end'),
         minWidth: 150,
         height: contHeight,
     },

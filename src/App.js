@@ -16,8 +16,9 @@ import { flexRow } from "assets/flexer"
 
 const useStyles = createUseStyles({
   mainCont: {
-    width: '100%', 
-    padding: '0 50px',
+    width: '76rem', 
+    padding: '0 20px',
+    margin: '0 auto',
     marginBottom: 50,
   },
   
@@ -35,7 +36,7 @@ function App() {
         <Routes>
           <Route exact path='/' element={<Home />} />
           <Route path='productlist' element={<ProductList productData={productData}  />} />
-          <Route path='productdetail/:id' element={<ProductDetail productData={productData} />} />
+          <Route path='productdetail/:id' element={<ProductDetail />} />
           <Route path='cart' element={<Cart productData={productData} />} />
           <Route path='checkout' element={<Checkout productData={productData} />} />
         </Routes>

@@ -78,7 +78,7 @@ import chatbubble_white_48 from "assets/images/chatbubble_48.png"
                 </ul>
             </div>
             <div className={`${classes.navAbout} ${classes.navItem}`}>
-                <p><strong>About swole.com</strong></p>
+                <p><strong>About bol.com</strong></p>
                 <ul>
                     <li>Voordelen</li>
                     <li>News</li>

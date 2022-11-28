@@ -2,7 +2,7 @@ import React from 'react'
 import { createUseStyles } from 'react-jss'
 
 import CategorySelector from './CategorySelector'
-import PriceSelector from './PriceSelector'
+// import PriceSelector from './PriceSelector'
 
 const useStyles = createUseStyles({
     filterCont: {
@@ -10,13 +10,13 @@ const useStyles = createUseStyles({
     }
 })
 
-function Filter() {
+function Filter({selectCategory}) {
 
     const classes = useStyles()
   return (
     <div className={classes.filterCont}>
-        <CategorySelector />
-        <PriceSelector />
+        <CategorySelector selectCategory={selectCategory}/>
+        {/* <PriceSelector /> */}
     </div>
   )
 }

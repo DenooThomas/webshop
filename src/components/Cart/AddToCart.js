@@ -8,13 +8,7 @@ import plus_black from "assets/images/plus_black_24.png"
 import check_green from "assets/images/check_green_24.png"
 import cart_black from "assets/images/cart_black_24.png"
 import cart_green from "assets/images/cart_green_24.png"
-import { hover } from '@testing-library/user-event/dist/hover'
 
-const hoverInCart = {
-  theme: {
-    border: `1px solid ${Colors.lightGreen}` 
-  }
-}
 
 const useStyles = createUseStyles({
   inputCont: (props) => ({
@@ -55,7 +49,7 @@ const useStyles = createUseStyles({
     },
   },
   'inCart': {
-    border: `1px solid ${Colors.green}`,
+    border: `1px solid ${Colors.grey}`,
   },
 
   icon: {

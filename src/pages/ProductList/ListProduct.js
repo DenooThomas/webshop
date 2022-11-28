@@ -7,8 +7,8 @@ import { Colors } from 'assets/colors'
 import { CartContext } from 'context/CartContext'
 import { getFirstPart, getDecimalPart } from 'utils'
 
-import Rating from './components/Rating'
-import Description from './components/Description'
+import Rating from 'components/Product/components/Rating'
+import Description from 'components/Product/components/Description'
 import AddToCart from 'components/Cart/AddToCart'
 
 const contHeight = 230
@@ -61,7 +61,7 @@ const useStyles = createUseStyles({
         fontFamily: `'Bitter', serif`,
         color: Colors.red,
         fontSize: '1.6rem',
-        fontWeight: 800,
+        fontWeight: 900,
          '& span': {
             display: 'inline-block',
             fontSize: '1.1rem',

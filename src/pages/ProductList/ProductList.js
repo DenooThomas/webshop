@@ -1,10 +1,13 @@
 import { createUseStyles } from 'react-jss'
+import { useContext } from 'react'
 
+import { ProductContext } from 'context/ProductContext'
 import {flexColumn, flexRow} from "assets/flexer"
 import Filter from './Filter/Filter'
-import Product from 'components/Product/Product'
+import ListProduct from './ListProduct'
 import product_banner from "assets/images/product_banner.png"
 import SortingSelector from './Filter/SortingSelector'
+import { useEffect, useState } from 'react'
 
 const useStyles = createUseStyles({
   productListWrapper: {
@@ -50,11 +53,59 @@ const useStyles = createUseStyles({
   },
 }})
 
-function ProductList({productData}) {
+function ProductList() {
+  const {productData} = useContext(ProductContext)
+  const [selectedProducts, setSelectedProducts]= useState([])
+  const [selectedCategories, setSelectedCategories] = useState([])
+  
+
+  function selectCategory(value) {
+    const check = selectedCategories.find(category => category === value)
+    if(check){
+      const newSelectedCategories = selectedCategories.filter(category => category !== value)
+      setSelectedCategories(newSelectedCategories)
+    } else {
+      setSelectedCategories(currentSelection => [...currentSelection, value])
+    }
+  }
+
+  
+  function GenerateProducts(){
+    if(selectedProducts.length === 0){
+      productData.map(product => {
+        if(selectedCategories.length > 0){
+          return selectedCategories.map(category => {
+            if(product.category === category){
+              return selectedProducts.push(
+                <ListProduct
+                key={product.id}
+                product={product}
+                />)
+            } else {
+              return null
+            }
+          })
+        }
+        else {
+          return selectedProducts.push(
+            <ListProduct
+            key={product.id}
+            product={product}
+            />)
+        }
+      })
+    }
+    return selectedProducts
+  }
+
+  useEffect(() => {
+    setSelectedProducts([])
+  }, [selectedCategories])
+
   const classes = useStyles()
   return (
     <div className={classes.productListWrapper}>
-      <Filter />
+      <Filter selectCategory={selectCategory}/>
       <div className={classes.productListCont}>
         <div className={classes.topCont}>
             <div className={classes.banner}>
@@ -64,22 +115,14 @@ function ProductList({productData}) {
               </div>
             </div>
             <div className={classes.sortingCont}>
-              <span>{productData.length} results</span>
+              <span>{selectedProducts.length} results</span>
               <div>
                 <span>Sort by:</span>
                 <SortingSelector />
               </div>
             </div>
         </div>
-        {productData.length > 0 &&
-          productData.map(product => {
-            return (
-              <Product
-              key={product.id}
-              product={product}
-              layout="list"  
-              />)
-          })}
+        {productData.length > 0 && <GenerateProducts />}
       </div>
     </div>
   )

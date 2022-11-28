@@ -8,6 +8,7 @@ const useStyles = createUseStyles({
   button: {
     border: 'none',
     cursor: 'pointer',
+    backgroundColor: 'transparent',
   },
   image: {
     width: 20,

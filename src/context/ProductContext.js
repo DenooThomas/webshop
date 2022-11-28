@@ -10,24 +10,23 @@ function ProductContextProvider({children}) {
           .then(res=>res.json())
           .then(data=>setProductData(data))
   }, [])
-  const [selectedData, setSelectedData] = useState([])
 
-  const [filterData, setFilterData] = useState([])
-
-  const [categories, setCategories] = useState([])
-  useEffect(() => {
-    fetch('https://fakestoreapi.com/products/categories')
-          .then(res=>res.json())
-          .then(data=>setCategories(data))
-  }, [])
-
+  const categories = productData.length > 0 && [...new Set(productData.map(product => product.category))]
   
-  console.log(categories)
+  function findProduct(id){
+    const product = productData.find(product => product.id === parseInt(id))
+    if(product){
+      return product
+    } else {
+      return null
+    }
+  }
 
   return (
     <ProductContext.Provider value={{
       productData,
-      categories
+      categories,
+      findProduct,
     }}>
       {children}
     </ProductContext.Provider>

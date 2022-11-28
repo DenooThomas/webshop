@@ -5,7 +5,7 @@ import { CartContext } from 'context/CartContext'
 
 import useProductsCart from 'hooks/useProductsCart'
 import { flexColumn, flexRow } from 'assets/flexer'
-import Product from 'components/Product/Product'
+import CartProduct from './CartProduct'
 import CartOverview from './CartOverview'
 import { Fonts } from 'assets/fonts'
 import { Colors } from 'assets/colors'
@@ -114,7 +114,7 @@ function Cart({productData}) {
         <div className={classes.leftCont}>
           {cart.map(cartItem => {
             const product = productData.find(product => product.id === cartItem.id)
-            return (<Product
+            return (<CartProduct
                 key={cartItem.id}
                 product={product}
                 layout='cart'

@@ -12,12 +12,13 @@ const useStyles = createUseStyles({
     ...flexRow('nowrap', 'center', 'center'),
     width: '100%',
     backgroundColor: Colors.blue,
-    padding: '12px 60px',
     marginBottom: 50,
   },
   headerCont: {
     ...flexRow('nowrap', 'space-between', 'center'),
-    width: '100%',
+    width: '76rem',
+    padding: '12px 20px',
+    margin: '0 auto',
   },
   home: {
     color: Colors.white,
